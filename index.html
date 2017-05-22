@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBIxvKenjiqG0riV3NV3NXyYv7xUaGQ1qY",
+            authDomain: "connectmyform.firebaseapp.com",
+            databaseURL: "https://connectmyform.firebaseio.com",
+            projectId: "connectmyform",
+            storageBucket: "connectmyform.appspot.com",
+            messagingSenderId: "313407740828"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="YourApp">
+<md-toolbar class="md-accent">
+    <div class="md-toolbar-tools">
+
+        <h2>Send Email</h2>
+        <span flex></span>
+        <md-button class="md-icon-button test-tooltip" aria-label="Refresh">
+            <md-tooltip md-direction="left">Refresh</md-tooltip>
+            <md-icon
+                    md-svg-src="img/icons/ic_refresh_24px.svg"
+                    style="width: 24px; height: 24px">
+            </md-icon>
+        </md-button>
+
+    </div>
+</md-toolbar>
+<br>
+<br>
+<div ng-controller="MyCtrl" layout="column" layout-padding ng-cloak>
+    <md-content class="md-no-momentum">
+        <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>Name</label>
+            <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+            <input ng-model="user.name" type="text">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <!-- Use floating placeholder instead of label -->
+            <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+            <input ng-model="user.email" type="text" placeholder="Email (required)" >
+        </md-input-container>
+
+    </md-content>
+    <md-button class="md-raised md-primary" ng-click="submitEmail(user)">Click TO Send Email</md-button>
+
+</div>
+
+
+
+</body>
+</html>
